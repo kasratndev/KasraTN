@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#030712">
+<title>KasraTN | Gaming</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
+
+:root{
+    --bg:#030712;
+    --card:#080f20;
+    --blue:#0055ff;
+    --neon:#008cff;
+    --white:#f5f8ff;
+    --gray:#9ba9c0;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Vazirmatn',Tahoma,sans-serif;
+    background:var(--bg);
+    color:var(--white);
+    min-height:100vh;
+    overflow-x:hidden;
+    background-image:
+        radial-gradient(ellipse at 50% 0%,#004cff25,transparent 45%),
+        radial-gradient(ellipse at 100% 70%,#0055ff10,transparent 35%);
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+header{
+    padding:20px 7%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid #ffffff12;
+    background:#030712e8;
+    backdrop-filter:blur(15px);
+}
+
+.logo{
+    font-size:25px;
+    font-weight:900;
+    direction:ltr;
+}
+
+.logo span,
+.hero h1 span,
+.footer-logo span{
+    color:var(--neon);
+    text-shadow:0 0 25px #0066ff90;
+}
+
+.header-btn{
+    padding:10px 17px;
+    border:1px solid var(--blue);
+    border-radius:8px;
+    font-size:13px;
+    transition:.3s;
+}
+
+.header-btn:hover{
+    background:var(--blue);
+    box-shadow:0 0 22px #0066ff80;
+}
+
+.hero{
+    min-height:450px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:65px 20px;
+    position:relative;
+}
+
+.status{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    color:#168bff;
+    background:#0055ff18;
+    border:1px solid #0066ff60;
+    padding:8px 15px;
+    border-radius:30px;
+    font-size:12px;
+    margin-bottom:25px;
+}
+
+.dot{
+    width:7px;
+    height:7px;
+    background:#008cff;
+    border-radius:50%;
+    box-shadow:0 0 12px #008cff;
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    50%{opacity:.3}
+}
+
+.hero h1{
+    font-size:clamp(48px,9vw,85px);
+    font-weight:900;
+    direction:ltr;
+    letter-spacing:2px;
+}
+
+.hero p{
+    margin-top:15px;
+    color:var(--gray);
+    font-size:14px;
+    line-height:2.2;
+}
+
+.actions{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-top:27px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    padding:13px 22px;
+    border-radius:8px;
+    font-family:inherit;
+    font-size:13px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.primary{
+    background:var(--blue);
+    color:white;
+    box-shadow:0 0 22px #0055ff40;
+}
+
+.primary:hover{
+    background:#167bff;
+    box-shadow:0 0 30px #0066ff85;
+    transform:translateY(-3px);
+}
+
+.outline{
+    border:1px solid #ffffff25;
+    background:#ffffff05;
+}
+
+.outline:hover{
+    border-color:var(--neon);
+    color:var(--neon);
+}
+
+.line{
+    position:absolute;
+    bottom:0;
+    width:160px;
+    height:2px;
+    background:linear-gradient(90deg,transparent,#0066ff,transparent);
+    box-shadow:0 0 15px #0066ff;
+}
+
+main{
+    width:min(950px,90%);
+    margin:auto;
+}
+
+.heading{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin:45px 0 22px;
+}
+
+.heading h2{
+    font-size:21px;
+    font-weight:800;
+}
+
+.heading h2 span{
+    color:var(--neon);
+}
+
+/* کارت ویدیو */
+
+.video-card{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:28px;
+    padding:25px;
+    background:linear-gradient(135deg,#0b1630,#070c18);
+    border:1px solid #075cff50;
+    border-radius:16px;
+    margin-bottom:20px;
+    transition:.3s;
+}
+
+.video-card:hover{
+    border-color:#007bff;
+    box-shadow:0 0 35px #0055ff18;
+}
+
+.preview{
+    aspect-ratio:16/10;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    border:1px solid #0066ff75;
+    border-radius:12px;
+    background:
+        radial-gradient(ellipse at center,#004cff35,transparent 65%),
+        #050a16;
+    position:relative;
+    overflow:hidden;
+}
+
+.preview::before,
+.preview::after{
+    content:"";
+    position:absolute;
+    width:35px;
+    height:35px;
+    border-color:#087bff;
+    border-style:solid;
+}
+
+.preview::before{
+    top:12px;
+    right:12px;
+    border-width:2px 2px 0 0;
+}
+
+.preview::after{
+    bottom:12px;
+    left:12px;
+    border-width:0 0 2px 2px;
+}
+
+.play{
+    width:66px;
+    height:66px;
+    border:2px solid #087bff;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding-right:3px;
+    font-size:25px;
+    color:white;
+    background:#0055ff30;
+    box-shadow:0 0 28px #0066ff35;
+    transition:.3s;
+}
+
+.preview:hover .play{
+    background:var(--blue);
+    box-shadow:0 0 35px #0066ff90;
+    transform:scale(1.1);
+}
+
+.video-info .tag{
+    display:inline-block;
+    color:#168bff;
+    background:#0055ff20;
+    border:1px solid #0066ff50;
+    border-radius:5px;
+    padding:5px 10px;
+    font-size:11px;
+    margin-bottom:15px;
+}
+
+.video-info h3{
+    font-size:25px;
+    margin-bottom:12px;
+}
+
+.video-info p{
+    color:var(--gray);
+    font-size:13px;
+    line-height:2.2;
+}
+
+.video-info .btn{
+    margin-top:22px;
+}
+
+/* کارت‌های قابل توسعه */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:16px;
+    margin-bottom:50px;
+}
+
+.mini-card{
+    min-width:0;
+    background:var(--card);
+    border:1px solid #ffffff15;
+    border-radius:12px;
+    padding:22px;
+    margin:4px 0;
+    transition:.3s;
+}
+
+.mini-card:hover{
+    border-color:#0066ff;
+    transform:translateY(-3px);
+}
+
+.icon{
+    font-size:25px;
+    margin-bottom:12px;
+}
+
+.mini-card h3{
+    font-size:16px;
+    margin-bottom:8px;
+}
+
+.mini-card p{
+    font-size:12px;
+    color:var(--gray);
+    line-height:2;
+}
+
+.mini-card a{
+    display:inline-block;
+    color:#168bff;
+    font-size:12px;
+    margin-top:14px;
+}
+
+/* پایین صفحه */
+
+footer{
+    border-top:1px solid #ffffff12;
+    padding:22px 15px 12px;
+    text-align:center;
+    background:#03071280;
+}
+
+.footer-logo{
+    font-size:20px;
+    font-weight:900;
+    direction:ltr;
+    margin-bottom:12px;
+    color:white;
+}
+
+.copyright{
+    color:#65738a;
+    font-size:10px;
+    margin-top:12px;
+}
+
+/* نمایش موبایل */
+
+@media(max-width:650px){
+
+    header{
+        padding:17px 5%;
+    }
+
+    .logo{
+        font-size:21px;
+    }
+
+    .header-btn{
+        font-size:11px;
+        padding:9px 11px;
+    }
+
+    .hero{
+        min-height:410px;
+    }
+
+    .hero p{
+        font-size:13px;
+    }
+
+    .heading h2{
+        font-size:18px;
+    }
+
+    .video-card{
+        grid-template-columns:1fr;
+        padding:16px;
+        gap:22px;
+    }
+
+    .video-info h3{
+        font-size:22px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+        gap:14px;
+    }
+
+    .mini-card{
+        padding:18px;
+    }
+}
+
+@media(prefers-reduced-motion:reduce){
+
+    *,*::before,*::after{
+        animation:none!important;
+        scroll-behavior:auto!important;
+        transition:none!important;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="#" class="logo">Kasra<span>TN</span></a>
+
+    <a class="header-btn"
+       href="https://www.aparat.com/KasraTN?refererRef=search"
+       target="_blank"
+       rel="noopener noreferrer">
+        کانال آپارات ↗
+    </a>
+</header>
+
+<section class="hero">
+
+    <div class="status">
+        <span class="dot"></span>
+        به دنیای KasraTN خوش آمدید
+    </div>
+
+    <h1>Kasra<span>TN</span></h1>
+
+    <p>
+        دنیای گیمینگ، هیجان و ماجراجویی
+        <br>
+        همراه با ویدیوهای بازی
+    </p>
+
+    <div class="actions">
+
+        <a class="btn primary"
+           href="https://www.aparat.com/KasraTN?refererRef=search"
+           target="_blank"
+           rel="noopener noreferrer">
+            ▶ مشاهده کانال
+        </a>
+
+        <a class="btn outline" href="#videos">
+            مشاهده ویدیوها ↓
+        </a>
+
+    </div>
+
+    <div class="line"></div>
+
+</section>
+
+<main>
+
+    <section id="videos">
+
+        <div class="heading">
+            <h2>ویدیوی <span>گیمینگ</span></h2>
+        </div>
+
+        <article class="video-card">
+
+            <a class="preview"
+               href="https://www.aparat.com/v/ibng38v?refererRef=channel_page"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="مشاهده ویدیوی گیمینگ">
+
+                <div class="play">▶</div>
+
+            </a>
+
+            <div class="video-info">
+
+                <span class="tag">GAMING</span>
+
+                <h3>ویدیوی گیمینگ</h3>
+
+                <p>
+                    برای تماشای ویدیو، از طریق آپارات وارد شوید.
+                </p>
+
+                <a class="btn primary"
+                   href="https://www.aparat.com/v/ibng38v?refererRef=channel_page"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    ▶ مشاهده در آپارات
+                </a>
+
+            </div>
+
+        </article>
+
+    </section>
+
+    <section>
+
+        <div class="heading">
+            <h2>درباره <span>کانال</span></h2>
+        </div>
+
+        <div class="cards">
+
+            <article class="mini-card">
+
+                <div class="icon">🎮</div>
+
+                <h3>کانال آپارات KasraTN</h3>
+
+                <p>
+                    برای مشاهده سایر ویدیوها، به کانال مراجعه کنید.
+                </p>
+
+                <a href="https://www.aparat.com/KasraTN?refererRef=search"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    ورود به کانال ↗
+                </a>
+
+            </article>
+
+            <!-- برای اضافه کردن کارت جدید، این قسمت را کپی کن -->
+
+            <!--
+            <article class="mini-card">
+                <div class="icon">🎮</div>
+                <h3>عنوان کارت</h3>
+                <p>توضیحات کارت را اینجا بنویسید.</p>
+                <a href="لینک">مشاهده بیشتر ↗</a>
+            </article>
+            -->
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+
+    <div class="footer-logo">Kasra<span>TN</span></div>
+
+    <div class="copyright">
+        © تمامی حقوق محفوظ است.
+    </div>
+
+</footer>
+
+</body>
+      </html>
